@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SImpleCRUD.Models.House>
+
+@{
+    ViewData["Title"] = "House information list";
+}
+
+
+<style>
+    .table {
+        text-align: center;
+        border-collapse: separate;
+    }
+
+    font {
+        font-family: Microsoft JhengHei;
+        font-weight: bold;
+        color: #4F4F4F;
+        font-size: medium;
+    }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <font>房屋種類</font>
+            </th>
+            <th>
+                <font>樓層</font>
+            </th>
+            <th>
+                <font>坪數</font>
+            </th>
+            <th>
+                <font>屋齡</font>
+            </th>
+            <th>
+                <font>現在屋主</font>
+            </th>
+            <th>
+                <font>價格</font>
+            </th>
+            <th>
+                <font>地址</font>
+            </th>
+            <th  style="text-align:left"><a asp-action="ExportExcell">匯出</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.type) - @Html.DisplayFor(modelItem => item.RoomNum)房 @Html.DisplayFor(modelItem => item.HallNum)廳 @Html.DisplayFor(modelItem => item.BathNum)衛
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.floor) 樓
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size) 坪
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year) 年
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price) 萬
+            </td>
+            <td colspan="2" style="text-align:left">
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

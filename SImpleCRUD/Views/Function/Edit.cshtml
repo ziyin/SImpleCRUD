@@ -1,0 +1,87 @@
+﻿@model SImpleCRUD.Models.House
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<style>
+    font {
+        font-family: Microsoft JhengHei;
+        font-weight: bold;
+        color: #272727;
+        font-size: medium;
+    }
+
+    textarea {
+        resize: none;
+        width: 55%
+    }
+</style>
+
+<form asp-action="Update">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ID" />
+    <div class="form-group">
+        <font>房屋類型：</font>
+        <select asp-for="type" style="width:auto;">
+            <option>電梯大樓</option>
+            <option>華廈</option>
+            <option>無電梯公寓</option>
+            <option>透天別墅</option>
+        </select>&emsp;
+        <input asp-for="RoomNum" type="text" pattern="\d*" maxlength="1" style="width:20px" autocomplete="off" /><font>
+            房
+        </font>
+        <input asp-for="HallNum" type="text" pattern="\d*" maxlength="1" style="width:20px" autocomplete="off" /><font>
+            廳
+        </font>
+        <input asp-for="BathNum" type="text" pattern="\d*" maxlength="1" style="width:20px" autocomplete="off" /><font>衛</font>
+        <br />
+        <span asp-validation-for="RoomNum" class="text-danger"></span>
+        <span asp-validation-for="HallNum" class="text-danger"></span>
+        <span asp-validation-for="BathNum" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <font>樓層：</font><input asp-for="floor" type="text" pattern="\d*" maxlength="2" style="width:30px" autocomplete="off" />
+        &emsp;
+        <font>坪數：</font><input asp-for="Size" type="text" style="width:50px" maxlength="5" autocomplete="off" />
+        &emsp;
+        <font>屋齡：</font><input asp-for="year" type="text" pattern="\d*" maxlength="5" style="width:50px" autocomplete="off" />
+        <br />
+        <span asp-validation-for="floor" class="text-danger"></span>
+        <span asp-validation-for="Size" class="text-danger"></span>
+        <span asp-validation-for="year" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <font>地址：</font><input asp-for="Address" type="text" style="width:50%" autocomplete="off" />
+        <br />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <font>屋主名稱：</font><input asp-for="Owner" type="text" style="width:10%" autocomplete="off" />
+        &emsp;
+        <font>希望販售價格：</font><input asp-for="price" type="text" pattern="\d*" maxlength="8" style="width:80px" autocomplete="off" /><font>萬元</font>
+        <br />
+        <span asp-validation-for="Owner" class="text-danger"></span>
+        <span asp-validation-for="price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <font>備註：</font><br /><textarea asp-for="remark" autocomplete="off" rows="8"></textarea>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="送出" class="btn btn-primary" />
+        <input type="reset" value="重新填寫" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Update">返回</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

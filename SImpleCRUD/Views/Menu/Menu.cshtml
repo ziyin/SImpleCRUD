@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Function menu";
+}
+
+
+<style>
+    .div_MenuBtn {
+        padding-top: 5%;
+    }
+
+    .table_MenuBtn {
+        text-align: center;
+        border-collapse: separate;
+        border-spacing: 100px 5px;
+    }
+
+        .table_MenuBtn button, img {
+            background-color: transparent;
+            border-style: none;
+            width: 200px;
+            height: 200px;
+        }
+
+        .table_MenuBtn font {
+            font-family: Microsoft JhengHei;
+            font-weight: bold;
+            color: #0072E3;
+            font-size: medium;
+        }
+</style>
+
+<title>@ViewData["title"]</title>
+
+<center>
+
+
+    <h2>請選擇下列功能</h2>
+
+    <div class="div_MenuBtn">
+        <table class="table_MenuBtn">
+            <tr>
+                <td><font>新增房屋資訊</font></td>
+                <td><font>更新房屋資訊</font></td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="location.href='@Url.Action("Insert", "Function")'">
+                        <img src="~/image/insert.png" />
+                    </button>
+                </td>
+                <td>
+                    <button onclick="location.href='@Url.Action("Update", "Function")'">
+                        <img src="~/image/update.png" />
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td><font>刪除房屋資訊</font></td>
+                <td><font>房屋清單</font></td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="location.href='@Url.Action("Delete", "Function")'">
+                        <img src="~/image/delete.png" />
+                    </button>
+                </td>
+                <td>
+                    <button onclick="location.href='@Url.Action("List", "Function")'">
+                        <img src="~/image/list.png" />
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</center>

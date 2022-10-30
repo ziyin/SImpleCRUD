@@ -1,0 +1,54 @@
+﻿@model SImpleCRUD.Models.House
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    font {
+        font-family: Microsoft JhengHei;
+        font-weight: bold;
+        color: #272727;
+        font-size: medium;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 20px 20px;
+    }
+</style>
+
+<div>
+    <h4>請確認下列資料，是否確定刪除</h4>
+    <hr />
+
+    <table>
+        <tr>
+            <td style="text-align:right"><font>房屋類型：</font></td>
+            <td colspan="5"> @Html.DisplayFor(model => model.type) - @Html.DisplayFor(model => model.RoomNum)房 @Html.DisplayFor(model => model.HallNum)廳 @Html.DisplayFor(model => model.BathNum)衛</td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><font>樓層：</font></td>
+            <td> @Html.DisplayFor(model => model.floor) </td>
+            <td><font>坪數：</font></td>
+            <td> @Html.DisplayFor(model => model.Size) </td>
+            <td><font>屋齡(年)：</font></td>
+            <td> @Html.DisplayFor(model => model.year) </td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><font>屋主：</font></td>
+            <td> @Html.DisplayFor(model => model.Owner) </td>
+            <td><font>價格(萬)：</font></td>
+            <td> @Html.DisplayFor(model => model.price) </td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><font>地址：</font></td>
+            <td colspan="5"> @Html.DisplayFor(model => model.Address) </td>
+        </tr>
+    </table>
+    <form asp-action="del">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="確定刪除" class="btn btn-danger" /> |
+        <a asp-action="Delete">取消</a>
+    </form>
+</div>
